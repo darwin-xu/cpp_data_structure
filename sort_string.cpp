@@ -38,23 +38,23 @@ void input_string(string list[], string str)
         carry[1] = str[i * 4 + 1];
         carry[2] = str[i * 4 + 2];
         carry[3] = str[i * 4 + 3];
-        list[i] = carry;
+        list[i]  = carry;
     }
 }
 
-void remove_element(string *str[], int length, int num)
+void remove_element(string str[], int length, int num)
 {
     for (int i = 0; i < length - num - 1; i++)
     {
-        *str[num + i] = *str[num + i + 1];
-        cout << *str << endl;
+        str[num + i] = str[num + i + 1];
+        cout << str[num + i] << endl;
     }
-    *str[length - 1] = (char)0;
+    str[length - 1] = "";
 }
 
 int main()
 {
-    int *p;
+    // int *p;
     string str = getRandomStr();
     cout << str << endl;
     string list[10];
@@ -66,8 +66,8 @@ int main()
     a[0] = "aaa";
     a[1] = "bbb";
     a[2] = "ccc";
-    p = &a;
-    remove_element(p, 5, 0);
+    // p = &a;
+    remove_element(a, 5, 0);
     for (int i = 0; i < 3; i++)
     {
         cout << a[i] << endl;
