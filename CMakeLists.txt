@@ -5,6 +5,7 @@ include(CTest)
 enable_testing()
 
 add_executable(sort_string sort_string.cpp)
+add_executable(linear_list linear_list.cpp)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
