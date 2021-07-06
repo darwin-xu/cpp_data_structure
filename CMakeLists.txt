@@ -4,6 +4,7 @@ project(sort_string VERSION 0.1.0)
 include(CTest)
 enable_testing()
 
+add_executable(test_bed    test_bed.cpp)
 add_executable(sort_string sort_string.cpp)
 add_executable(linear_list linear_list.cpp)
 
