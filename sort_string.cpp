@@ -44,19 +44,19 @@ int compare_string(string str1, string str2, int num)
  *          0 if str1 = str2
  *          1 if str1 > str2
  */
-int compare_string2(const string& str1, const string& str2)
-{
-    int l = std::min(str1.length(), str2.length());
-    for (int i = 0; i < l; ++i)
-    {
-        if (str1[i] < str2[i])
-            return -1;
-        else if ((str1[i] == str2[i]))
-            return 0;
-        else
-            return 1;
-    }
-}
+// int compare_string2(const string& str1, const string& str2)
+// {
+//     int l = std::min(str1.length(), str2.length());
+//     for (int i = 0; i < l; ++i)
+//     {
+//         if (str1[i] < str2[i])
+//             return -1;
+//         else if ((str1[i] == str2[i]))
+//             return 0;
+//         else
+//             return 1;
+//     }
+// }
 
 void print_string(string str[], int strlen)
 {

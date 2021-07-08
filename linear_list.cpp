@@ -12,9 +12,9 @@ typedef linear_list linear_list_t;
 
 void init_list(linear_list_t* ll)
 {
-    ll->array_    = new int[10];
-    ll->length_   = 0;
     ll->capacity_ = 10;
+    ll->array_    = (int*)malloc(sizeof(int) * ll->capacity_);
+    ll->length_   = 0;
 }
 
 void destroy_list(linear_list_t* ll)
@@ -55,6 +55,15 @@ void list_delete(linear_list_t* ll, int i)
 
 void list_push_back(linear_list_t* ll, int n)
 {
+    if (ll->length_ > ll->capacity_)
+    {
+        ll->capacity_ = ll->capacity_ * 2;
+        int* tmp      = (int*)malloc(sizeof(int) * ll->capacity_);
+        memcpy(tmp, ll->array_, sizeof(int) * ll->length_);
+        free(ll->array_);
+        ll->array_ = tmp;
+    }
+
     ll->array_[ll->length_] = n;
     ll->length_++;
 }
@@ -71,10 +80,10 @@ int main()
 
     init_list(&mylist);
 
-    list_push_back(&mylist, 5);
-    list_push_back(&mylist, 3);
-    list_push_back(&mylist, 7);
-
+    for (int i = 0; i < 1000000; ++i)
+    {
+        list_push_back(&mylist, i);
+    }
     for (int i = 0; i < mylist.length_; ++i)
     {
         std::cout << mylist.array_[i] << " ";
