@@ -72,16 +72,6 @@ void input_string(string list[], string str)
     }
 }
 
-void remove_element(string str[], int length, int num)
-{
-    for (int i = 0; i < length - num - 1; i++)
-    {
-        str[num + i] = str[num + i + 1];
-        cout << str[num + i] << endl;
-    }
-    str[length - 1] = "";
-}
-
 void sort_string(string str[])
 {
 
@@ -97,14 +87,15 @@ void sort_string(string str[])
 
 int main()
 {
-    // int *p;
     string str = getRandomStr();
     cout << str << endl;
     string list[10];
     input_string(list, str);
+
     cout << "ORIGIN: " << endl;
     print_string(list, 5);
     cout << "MATCHED:" << endl;
     print_string(list, 5);
+    
     return 0;
 }
