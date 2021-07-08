@@ -79,7 +79,7 @@ void sort_string(string str[])
     {
         for (int j = i + 1; j < 5 - 1; j++)
         {
-            if (compare_string(str[j], str[i], 4) == 1)
+            if (compare_string(str[j], str[i], 0) == 1)
                 swap_element(&str[j], &str[i]);
         }
     }
@@ -94,8 +94,16 @@ int main()
 
     cout << "ORIGIN: " << endl;
     print_string(list, 5);
+
+    sort_string(list);
+
     cout << "MATCHED:" << endl;
     print_string(list, 5);
-    
+
+    std::cout << "=======" << std::endl;
+    std::cout << compare_string("1234", "1235", 0) << std::endl;
+    std::cout << compare_string("1234", "1234", 0) << std::endl;
+    std::cout << compare_string("1234", "1233", 0) << std::endl;
+
     return 0;
 }
