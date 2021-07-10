@@ -44,39 +44,44 @@ int compare_string(string str1, string str2, int num)
  *          0 if str1 = str2
  *          1 if str1 > str2
  */
-int compare_string2(const string& str1, const string& str2,int num)
+int compare_string2_help(const string& str1, const string& str2, int num)
 {
     int l = std::min(str1.length(), str2.length());
-    if(num==l)
+    if (num == l)
     {
-        if(str1.length()>str2.length())
+        if (str1.length() > str2.length())
         {
             return 1;
         }
-        else if(str1.length()==str2.length())
+        else if (str1.length() == str2.length())
+        {
+            return 0;
+        }
+        else
+        {
+            return -1;
+        }
+    }
+    else
+    {
+        if (str1[num] > str2[num])
+        {
+            return 1;
+        }
+        else if (str1[num] < str2[num])
         {
             return -1;
         }
         else
         {
-            return 0;
+            return compare_string2_help(str1, str2, num + 1);
         }
     }
-    else
-    {
-        if(str1[num]>str2[num])
-        {
-            return 1;
-        }
-        else if(str1[num]<str2[num])
-        {
-            return 0;
-        }
-        else 
-        {
-            return compare_string2(str1,str2,num+1);
-        }
-    }
+}
+
+int compare_string2(const string& str1, const string& str2)
+{
+    return compare_string2_help(str1, str2, 0);
 }
 
 void print_string(string str[], int strlen)
@@ -138,6 +143,6 @@ int main()
 
     cout << "MATCHED:" << endl;
     print_string(list, 5);
-    
+
     return 0;
 }
