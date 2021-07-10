@@ -117,11 +117,6 @@ int main()
 
     cout << "MATCHED:" << endl;
     print_string(list, 5);
-
-    std::cout << "=======" << std::endl;
-    std::cout << compare_string("1234", "1235", 0) << std::endl;
-    std::cout << compare_string("1234", "1234", 0) << std::endl;
-    std::cout << compare_string("1234", "1233", 0) << std::endl;
-
+    
     return 0;
 }
